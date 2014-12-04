@@ -21,7 +21,8 @@ var findTwitter = function (url) {
             }
         }
         console.log('\n\nCouldn\'t find the Twitter. :(');
-        // try google here
+        console.log('Google search goes here.');
+        process.exit(1);
     });
 }
 
