@@ -12,16 +12,17 @@ var findTwitter = function (url) {
             var twitterBioUrls = result[twitterUrl];
             var i;
             for (i = 0; i < twitterBioUrls.length; i++) {
-                console.log('Comparing input uri:', parseUri(url).source, 'against Twitter bio uri:', parseUri(twitterBioUrls[i]).source)
-                if (parseUri(url).source === parseUri(twitterBioUrls[i]).source) {
+                console.log('Comparing input uri:', parseUri(url).authority, 'against Twitter bio uri:', parseUri(twitterBioUrls[i]).authority)
+                if (parseUri(url).authority.split('.').slice(-2).join('.') === parseUri(twitterBioUrls[i]).authority.split('.').slice(-2).join('.')) {
                     console.log('\n\nBOOM! FOUND IT.\n' + twitterUrl);
                     return twitterUrl;
                 }
             }
         }
         console.log('\n\nCouldn\'t find the Twitter. :(');
+        // try google here
     });
 }
 
-findTwitter('http://boostmobile.com')
+findTwitter('http://uniqlo.com')
 
