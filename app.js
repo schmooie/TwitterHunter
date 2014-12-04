@@ -15,7 +15,8 @@ var findTwitter = function (url) {
                 console.log('Comparing input uri:', parseUri(url).authority, 'against Twitter bio uri:', parseUri(twitterBioUrls[i]).authority)
                 if (parseUri(url).authority.split('.').slice(-2).join('.') === parseUri(twitterBioUrls[i]).authority.split('.').slice(-2).join('.')) {
                     console.log('\n\nBOOM! FOUND IT.\n' + twitterUrl);
-                    return twitterUrl;
+                    // return twitterUrl;
+                    process.exit(0);
                 }
             }
         }
@@ -24,5 +25,5 @@ var findTwitter = function (url) {
     });
 }
 
-findTwitter('http://uniqlo.com')
+findTwitter(process.argv.slice(2))
 
